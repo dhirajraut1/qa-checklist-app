@@ -1,0 +1,446 @@
+{
+  "modules": [
+    {
+      "id": "db",
+      "name": "Database Testing",
+      "shortName": "DB",
+      "description": "Schema, integrity, transactions and migrations",
+      "categories": [
+        {
+          "id": "db-schema",
+          "name": "Schema & Constraints",
+          "items": [
+            { "id": "db-001", "text": "Column is nullable / not-nullable as per requirement spec" },
+            { "id": "db-002", "text": "Column data type matches spec (e.g. accepts long int / bigint range)" },
+            { "id": "db-003", "text": "Primary key uniqueness is enforced" },
+            { "id": "db-004", "text": "Foreign key constraints are enforced correctly" },
+            { "id": "db-005", "text": "Default values are applied correctly on insert" },
+            { "id": "db-006", "text": "Column length / precision is validated (no silent truncation)" },
+            { "id": "db-007", "text": "Indexes exist on frequently queried columns" }
+          ]
+        },
+        {
+          "id": "db-integrity",
+          "name": "Data Integrity",
+          "items": [
+            { "id": "db-008", "text": "No orphan records remain after a delete" },
+            { "id": "db-009", "text": "Cascading delete / update behaves as expected" },
+            { "id": "db-010", "text": "Duplicate records are prevented by unique constraints" },
+            { "id": "db-011", "text": "Data is not truncated or rounded unexpectedly on insert" }
+          ]
+        },
+        {
+          "id": "db-crud",
+          "name": "CRUD Operations",
+          "items": [
+            { "id": "db-012", "text": "Insert persists all fields correctly" },
+            { "id": "db-013", "text": "Update modifies only the intended fields" },
+            { "id": "db-014", "text": "Delete removes the correct record(s) only" },
+            { "id": "db-015", "text": "Read query returns the expected row count" }
+          ]
+        },
+        {
+          "id": "db-transactions",
+          "name": "Transactions",
+          "items": [
+            { "id": "db-016", "text": "Rollback works correctly on failure mid-transaction" },
+            { "id": "db-017", "text": "Commit persists data after a successful transaction" },
+            { "id": "db-018", "text": "Concurrent writes do not cause deadlocks" },
+            { "id": "db-019", "text": "Isolation level prevents dirty reads" }
+          ]
+        },
+        {
+          "id": "db-migration",
+          "name": "Migration",
+          "items": [
+            { "id": "db-020", "text": "Migration script runs cleanly on a fresh database" },
+            { "id": "db-021", "text": "Migration is idempotent (safe to re-run)" },
+            { "id": "db-022", "text": "Rollback script reverts changes cleanly" },
+            { "id": "db-023", "text": "Existing data is unaffected by the schema change" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "name": "UI Testing",
+      "shortName": "UI",
+      "description": "Layout, forms, navigation and cross-browser behaviour",
+      "categories": [
+        {
+          "id": "ui-layout",
+          "name": "Layout & Rendering",
+          "items": [
+            { "id": "ui-001", "text": "Page renders correctly across target browsers" },
+            { "id": "ui-002", "text": "Responsive layout works on mobile / tablet / desktop breakpoints" },
+            { "id": "ui-003", "text": "No overlapping, cropped or clipped elements" },
+            { "id": "ui-004", "text": "Fonts, spacing and colors match the design spec" },
+            { "id": "ui-005", "text": "Images load with proper alt text" }
+          ]
+        },
+        {
+          "id": "ui-forms",
+          "name": "Forms & Validation",
+          "items": [
+            { "id": "ui-006", "text": "Required field validation triggers on submit" },
+            { "id": "ui-007", "text": "Inline error messages display correctly" },
+            { "id": "ui-008", "text": "Field accepts only valid input formats" },
+            { "id": "ui-009", "text": "Max length is enforced on text fields" },
+            { "id": "ui-010", "text": "Success confirmation shown after valid submission" }
+          ]
+        },
+        {
+          "id": "ui-nav",
+          "name": "Navigation",
+          "items": [
+            { "id": "ui-011", "text": "All links navigate to the correct destination" },
+            { "id": "ui-012", "text": "Browser back button behaves as expected" },
+            { "id": "ui-013", "text": "Breadcrumbs reflect the current page location" },
+            { "id": "ui-014", "text": "Active nav item is highlighted correctly" }
+          ]
+        },
+        {
+          "id": "ui-interactivity",
+          "name": "Interactivity",
+          "items": [
+            { "id": "ui-015", "text": "Buttons are clickable and give visual feedback" },
+            { "id": "ui-016", "text": "Loading state shown during async actions" },
+            { "id": "ui-017", "text": "Modals open and close correctly" },
+            { "id": "ui-018", "text": "Tooltips display correctly on hover / focus" }
+          ]
+        },
+        {
+          "id": "ui-crossbrowser",
+          "name": "Cross-Browser / Device",
+          "items": [
+            { "id": "ui-019", "text": "Verified on Chrome" },
+            { "id": "ui-020", "text": "Verified on Firefox" },
+            { "id": "ui-021", "text": "Verified on Safari" },
+            { "id": "ui-022", "text": "Verified on Edge" },
+            { "id": "ui-023", "text": "Verified on iOS Safari" },
+            { "id": "ui-024", "text": "Verified on Android Chrome" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "name": "API Testing",
+      "shortName": "API",
+      "description": "Status codes, payloads, auth and error handling",
+      "categories": [
+        {
+          "id": "api-status",
+          "name": "Status & Response",
+          "items": [
+            { "id": "api-001", "text": "API returns HTTP 200 on a successful request" },
+            { "id": "api-002", "text": "Appropriate 4xx returned for invalid input" },
+            { "id": "api-003", "text": "401 / 403 returned for unauthorized access" },
+            { "id": "api-004", "text": "500 is not returned for a valid request" },
+            { "id": "api-005", "text": "Response time is within the agreed SLA" }
+          ]
+        },
+        {
+          "id": "api-payload",
+          "name": "Payload Validation",
+          "items": [
+            { "id": "api-006", "text": "Response schema matches the API contract" },
+            { "id": "api-007", "text": "All required fields are present in the response" },
+            { "id": "api-008", "text": "Data types match the spec (string / int / bool / date)" },
+            { "id": "api-009", "text": "Pagination metadata is correct (total, page, limit)" },
+            { "id": "api-010", "text": "Null / empty values are handled gracefully" }
+          ]
+        },
+        {
+          "id": "api-request",
+          "name": "Request Handling",
+          "items": [
+            { "id": "api-011", "text": "API accepts a valid request payload" },
+            { "id": "api-012", "text": "Invalid / malformed payload returns a clear error" },
+            { "id": "api-013", "text": "Missing required fields rejected with 400" },
+            { "id": "api-014", "text": "Query params filter results correctly" },
+            { "id": "api-015", "text": "Idempotency respected for repeat PUT / DELETE" }
+          ]
+        },
+        {
+          "id": "api-auth",
+          "name": "Auth & Headers",
+          "items": [
+            { "id": "api-016", "text": "Valid token grants access" },
+            { "id": "api-017", "text": "Expired / invalid token is rejected" },
+            { "id": "api-018", "text": "Correct Content-Type header returned" },
+            { "id": "api-019", "text": "Rate limiting is enforced" },
+            { "id": "api-020", "text": "CORS headers configured correctly" }
+          ]
+        },
+        {
+          "id": "api-errors",
+          "name": "Error Handling",
+          "items": [
+            { "id": "api-021", "text": "Error response includes a meaningful message" },
+            { "id": "api-022", "text": "Error response follows the standard error schema" },
+            { "id": "api-023", "text": "No stack trace leaked in a production error response" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security Testing",
+      "shortName": "Security",
+      "description": "AuthN/AuthZ, input validation and data protection",
+      "categories": [
+        {
+          "id": "sec-authz",
+          "name": "AuthN / AuthZ",
+          "items": [
+            { "id": "sec-001", "text": "Unauthorized user cannot access a protected endpoint" },
+            { "id": "sec-002", "text": "Role-based access control is enforced correctly" },
+            { "id": "sec-003", "text": "Session expires after the configured timeout" },
+            { "id": "sec-004", "text": "Password reset flow doesn't leak account existence" },
+            { "id": "sec-005", "text": "Brute-force login attempts are throttled" }
+          ]
+        },
+        {
+          "id": "sec-input",
+          "name": "Input Validation",
+          "items": [
+            { "id": "sec-006", "text": "SQL injection payloads are safely rejected" },
+            { "id": "sec-007", "text": "XSS payloads are sanitized / escaped in output" },
+            { "id": "sec-008", "text": "File upload restricted to allowed types and size" },
+            { "id": "sec-009", "text": "Path traversal attempts are blocked" },
+            { "id": "sec-010", "text": "Command injection payloads are rejected" }
+          ]
+        },
+        {
+          "id": "sec-data",
+          "name": "Data Protection",
+          "items": [
+            { "id": "sec-011", "text": "Sensitive data encrypted in transit (HTTPS/TLS)" },
+            { "id": "sec-012", "text": "Sensitive data encrypted at rest" },
+            { "id": "sec-013", "text": "PII is masked in logs" },
+            { "id": "sec-014", "text": "No secrets or keys committed in source" },
+            { "id": "sec-015", "text": "API keys are not exposed in client-side code" }
+          ]
+        },
+        {
+          "id": "sec-session",
+          "name": "Session & Tokens",
+          "items": [
+            { "id": "sec-016", "text": "Session token invalidated on logout" },
+            { "id": "sec-017", "text": "CSRF protection enforced on state-changing requests" },
+            { "id": "sec-018", "text": "JWT signature is validated" },
+            { "id": "sec-019", "text": "Token cannot be reused after expiry" }
+          ]
+        },
+        {
+          "id": "sec-config",
+          "name": "Configuration",
+          "items": [
+            { "id": "sec-020", "text": "Security headers present (CSP, X-Frame-Options, HSTS)" },
+            { "id": "sec-021", "text": "Unnecessary ports / services are closed" },
+            { "id": "sec-022", "text": "Verbose error / debug mode disabled in production" },
+            { "id": "sec-023", "text": "Dependencies scanned for known vulnerabilities" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "microservices",
+      "name": "Microservices Testing",
+      "shortName": "Microservices",
+      "description": "Contracts, inter-service communication and resilience",
+      "categories": [
+        {
+          "id": "ms-contracts",
+          "name": "Service Contracts",
+          "items": [
+            { "id": "ms-001", "text": "Consumer-driven contract tests pass" },
+            { "id": "ms-002", "text": "API versioning handled without breaking consumers" },
+            { "id": "ms-003", "text": "Backward compatibility maintained for existing clients" }
+          ]
+        },
+        {
+          "id": "ms-comm",
+          "name": "Inter-Service Communication",
+          "items": [
+            { "id": "ms-004", "text": "Service handles downstream timeout gracefully" },
+            { "id": "ms-005", "text": "Retry logic works as expected on transient failure" },
+            { "id": "ms-006", "text": "Circuit breaker trips after the failure threshold" },
+            { "id": "ms-007", "text": "Correct fallback response returned when dependency is down" }
+          ]
+        },
+        {
+          "id": "ms-consistency",
+          "name": "Data Consistency",
+          "items": [
+            { "id": "ms-008", "text": "Eventual consistency achieved within the expected window" },
+            { "id": "ms-009", "text": "Distributed transaction / saga completes or compensates correctly" },
+            { "id": "ms-010", "text": "Duplicate event processing is idempotent" },
+            { "id": "ms-011", "text": "Message queue delivers at-least-once as expected" }
+          ]
+        },
+        {
+          "id": "ms-observability",
+          "name": "Observability",
+          "items": [
+            { "id": "ms-012", "text": "Service emits structured logs with a correlation / trace ID" },
+            { "id": "ms-013", "text": "Health check endpoint reports accurate status" },
+            { "id": "ms-014", "text": "Metrics exposed for monitoring (latency, error rate)" },
+            { "id": "ms-015", "text": "Distributed trace spans connect correctly across services" }
+          ]
+        },
+        {
+          "id": "ms-deployment",
+          "name": "Deployment & Resilience",
+          "items": [
+            { "id": "ms-016", "text": "Service starts correctly with required env configuration" },
+            { "id": "ms-017", "text": "Service scales horizontally under load" },
+            { "id": "ms-018", "text": "Rolling deployment causes no downtime" },
+            { "id": "ms-019", "text": "Service degrades gracefully when a dependency is unavailable" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "performance",
+      "name": "Performance Testing",
+      "shortName": "Performance",
+      "description": "Load, stress, scalability and resource usage",
+      "categories": [
+        {
+          "id": "perf-load",
+          "name": "Load",
+          "items": [
+            { "id": "perf-001", "text": "System meets response time SLA under expected load" },
+            { "id": "perf-002", "text": "Throughput meets target requests/sec" },
+            { "id": "perf-003", "text": "No memory leak observed during sustained load" },
+            { "id": "perf-004", "text": "Error rate stays below threshold under load" }
+          ]
+        },
+        {
+          "id": "perf-stress",
+          "name": "Stress & Scalability",
+          "items": [
+            { "id": "perf-005", "text": "System recovers gracefully after peak stress" },
+            { "id": "perf-006", "text": "Auto-scaling triggers correctly under load" },
+            { "id": "perf-007", "text": "No data loss during scale-up / scale-down" },
+            { "id": "perf-008", "text": "System degrades gracefully beyond capacity" }
+          ]
+        },
+        {
+          "id": "perf-resources",
+          "name": "Resource Usage",
+          "items": [
+            { "id": "perf-009", "text": "CPU utilization stays within acceptable range under load" },
+            { "id": "perf-010", "text": "Memory utilization stays within acceptable range under load" },
+            { "id": "perf-011", "text": "Database connection pool is not exhausted under load" },
+            { "id": "perf-012", "text": "No excessive I/O wait under load" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a11y",
+      "name": "Accessibility Testing",
+      "shortName": "Accessibility",
+      "description": "Keyboard, screen reader and visual accessibility",
+      "categories": [
+        {
+          "id": "a11y-keyboard",
+          "name": "Keyboard & Focus",
+          "items": [
+            { "id": "a11y-001", "text": "All interactive elements are reachable via keyboard" },
+            { "id": "a11y-002", "text": "Focus order follows a logical reading order" },
+            { "id": "a11y-003", "text": "Visible focus indicator present on all controls" },
+            { "id": "a11y-004", "text": "No keyboard trap present" }
+          ]
+        },
+        {
+          "id": "a11y-screenreader",
+          "name": "Screen Reader",
+          "items": [
+            { "id": "a11y-005", "text": "Images have descriptive alt text" },
+            { "id": "a11y-006", "text": "Form fields have associated labels" },
+            { "id": "a11y-007", "text": "ARIA roles / attributes used correctly" },
+            { "id": "a11y-008", "text": "Dynamic content changes are announced (live regions)" }
+          ]
+        },
+        {
+          "id": "a11y-visual",
+          "name": "Visual",
+          "items": [
+            { "id": "a11y-009", "text": "Color contrast meets WCAG AA minimum" },
+            { "id": "a11y-010", "text": "Content remains readable when zoomed to 200%" },
+            { "id": "a11y-011", "text": "UI is usable without relying on color alone" },
+            { "id": "a11y-012", "text": "Text resizes without loss of content or function" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile Testing",
+      "shortName": "Mobile",
+      "description": "Device behaviour, interruptions and connectivity",
+      "categories": [
+        {
+          "id": "mobile-functionality",
+          "name": "Functionality",
+          "items": [
+            { "id": "mobile-001", "text": "App installs and launches without crashing" },
+            { "id": "mobile-002", "text": "Core flows work on all target OS versions" },
+            { "id": "mobile-003", "text": "Push notifications are delivered and open correctly" },
+            { "id": "mobile-004", "text": "Deep links open the correct screen" }
+          ]
+        },
+        {
+          "id": "mobile-device",
+          "name": "Device Behavior",
+          "items": [
+            { "id": "mobile-005", "text": "App handles orientation change without data loss" },
+            { "id": "mobile-006", "text": "App resumes correctly from background" },
+            { "id": "mobile-007", "text": "App handles incoming call / notification interruption" },
+            { "id": "mobile-008", "text": "Low battery / low storage handled gracefully" }
+          ]
+        },
+        {
+          "id": "mobile-network",
+          "name": "Network",
+          "items": [
+            { "id": "mobile-009", "text": "App handles offline mode gracefully" },
+            { "id": "mobile-010", "text": "App recovers correctly when network reconnects" },
+            { "id": "mobile-011", "text": "API calls retried appropriately on poor connectivity" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regression",
+      "name": "Regression Testing",
+      "shortName": "Regression",
+      "description": "Confirming existing behaviour still holds after a change",
+      "categories": [
+        {
+          "id": "regression-core",
+          "name": "Core Flows",
+          "items": [
+            { "id": "regression-001", "text": "Previously passing critical user flows still pass" },
+            { "id": "regression-002", "text": "No new console / application errors introduced" },
+            { "id": "regression-003", "text": "Existing automated test suite passes" },
+            { "id": "regression-004", "text": "Previously fixed bugs remain fixed" }
+          ]
+        },
+        {
+          "id": "regression-integration",
+          "name": "Integration Points",
+          "items": [
+            { "id": "regression-005", "text": "Dependent modules / features unaffected by the change" },
+            { "id": "regression-006", "text": "Third-party integrations still function correctly" },
+            { "id": "regression-007", "text": "Data migrations haven't broken existing records" }
+          ]
+        }
+      ]
+    }
+  ]
+}
