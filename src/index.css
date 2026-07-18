@@ -89,13 +89,38 @@ a { color: var(--teal-dark); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 28px;
+  padding: 14px 28px;
   border-bottom: 1px solid var(--line-strong);
   background: var(--topbar-bg);
   backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 20;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.topbar-left { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+.top-nav { display: flex; align-items: center; gap: 2px; }
+
+.top-nav-link {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 6px 13px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.top-nav-link:hover { color: var(--teal-dark); }
+.top-nav-link.active {
+  color: var(--teal-dark);
+  background: var(--teal-tint);
+  border-color: var(--teal);
 }
 
 .topbar-right { display: flex; align-items: center; gap: 14px; }
@@ -558,6 +583,58 @@ a { color: var(--teal-dark); }
 .textarea-card textarea:focus { outline: none; border-color: var(--teal); }
 
 .export-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- Test case library ---------- */
+.filter-chip {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
+}
+.filter-chip:hover { border-color: var(--teal); color: var(--teal-dark); }
+.filter-chip.active { background: var(--teal-tint); border-color: var(--teal); color: var(--teal-dark); }
+
+.tc-filter-label {
+  font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--ink-faint); align-self: center; margin-right: 2px;
+}
+
+.tc-card-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
+
+.tc-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  transition: border-color 0.12s ease;
+}
+.tc-row:hover { border-color: var(--teal); }
+
+.tc-title { font-size: 13.5px; color: var(--ink); flex: 1; min-width: 0; }
+.tc-row-badges { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+
+.priority-badge {
+  font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+}
+.priority-high { background: var(--fail-tint); color: var(--fail); }
+.priority-medium { background: var(--amber-tint); color: var(--amber); }
+.priority-low { background: var(--teal-tint); color: var(--teal-dark); }
+
+.type-badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 20px; border: 1px solid var(--line-strong); color: var(--ink-soft);
+  white-space: nowrap;
+}
 
 /* ---------- Footer ---------- */
 .app-footer {

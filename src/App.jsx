@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Home from './components/Home';
 import Workspace from './components/Workspace';
+import TestCaseLibrary from './components/TestCaseLibrary';
 import { useTickets } from './hooks/useTickets';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
@@ -12,6 +13,7 @@ function getSystemTheme() {
 export default function App() {
   const { tickets, addTicket, updateTicket, deleteTicket, getTicket, lastTesterName } = useTickets();
   const [activeTicketId, setActiveTicketId] = useState(null);
+  const [page, setPage] = useState('checklist'); // 'checklist' | 'library'
   const [theme, setTheme] = useLocalStorage('qa_checklist_theme_v1', getSystemTheme());
 
   useEffect(() => {
@@ -22,7 +24,15 @@ export default function App() {
 
   const activeTicket = activeTicketId ? getTicket(activeTicketId) : null;
 
-  const goHome = () => setActiveTicketId(null);
+  const goHome = () => {
+    setActiveTicketId(null);
+    setPage('checklist');
+  };
+
+  const goToPage = (nextPage) => {
+    setActiveTicketId(null);
+    setPage(nextPage);
+  };
 
   const handleCreateTicket = (ticket) => {
     addTicket(ticket);
@@ -32,13 +42,32 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <div className="brand" onClick={goHome}>
-          <span className="brand-mark">QA</span>
-          <span className="brand-name">Manifest</span>
-          <span className="brand-tag">// checklist builder</span>
+        <div className="topbar-left">
+          <div className="brand" onClick={goHome}>
+            <span className="brand-mark">QA</span>
+            <span className="brand-name">Manifest</span>
+          </div>
+          <nav className="top-nav" aria-label="Main">
+            <button
+              type="button"
+              className={`top-nav-link ${page === 'checklist' ? 'active' : ''}`}
+              onClick={() => goToPage('checklist')}
+            >
+              Checklist Builder
+            </button>
+            <button
+              type="button"
+              className={`top-nav-link ${page === 'library' ? 'active' : ''}`}
+              onClick={() => goToPage('library')}
+            >
+              Test Case Library
+            </button>
+          </nav>
         </div>
         <div className="topbar-right">
-          <span className="topbar-meta">{tickets.length} ticket{tickets.length === 1 ? '' : 's'} saved locally</span>
+          {page === 'checklist' && (
+            <span className="topbar-meta">{tickets.length} ticket{tickets.length === 1 ? '' : 's'} saved locally</span>
+          )}
           <button
             type="button"
             className="theme-toggle"
@@ -53,7 +82,9 @@ export default function App() {
       </header>
 
       <main className="main">
-        {activeTicket ? (
+        {page === 'library' ? (
+          <TestCaseLibrary />
+        ) : activeTicket ? (
           <Workspace
             ticket={activeTicket}
             updateTicket={updateTicket}

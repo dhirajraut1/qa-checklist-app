@@ -1,0 +1,358 @@
+{
+  "modules": [
+    {
+      "id": "db",
+      "name": "Database Testing",
+      "shortName": "DB",
+      "categories": [
+        {
+          "id": "db-schema",
+          "name": "Schema & Constraints",
+          "testCases": [
+            { "id": "TC-DB-001", "priority": "High", "type": "Positive", "title": "Verify that a nullable column accepts a NULL value" },
+            { "id": "TC-DB-002", "priority": "High", "type": "Negative", "title": "Verify that a column rejects a value exceeding its defined length or precision" },
+            { "id": "TC-DB-003", "priority": "Medium", "type": "Positive", "title": "Verify that inserting a duplicate value into a unique column is rejected" }
+          ]
+        },
+        {
+          "id": "db-integrity",
+          "name": "Data Integrity",
+          "testCases": [
+            { "id": "TC-DB-004", "priority": "High", "type": "Positive", "title": "Verify that deleting a parent record cascades to related child records" },
+            { "id": "TC-DB-005", "priority": "High", "type": "Negative", "title": "Verify that no orphan records remain after a related record is deleted" }
+          ]
+        },
+        {
+          "id": "db-crud",
+          "name": "CRUD Operations",
+          "testCases": [
+            { "id": "TC-DB-006", "priority": "High", "type": "Positive", "title": "Verify that an insert operation persists all submitted field values correctly" },
+            { "id": "TC-DB-007", "priority": "Medium", "type": "Positive", "title": "Verify that an update operation modifies only the targeted fields" },
+            { "id": "TC-DB-008", "priority": "Medium", "type": "Positive", "title": "Verify that a delete operation removes only the intended record" }
+          ]
+        },
+        {
+          "id": "db-transactions",
+          "name": "Transactions",
+          "testCases": [
+            { "id": "TC-DB-009", "priority": "High", "type": "Negative", "title": "Verify that a transaction rolls back completely on mid-transaction failure" },
+            { "id": "TC-DB-010", "priority": "Medium", "type": "Positive", "title": "Verify that concurrent writes to the same record do not cause a deadlock" }
+          ]
+        },
+        {
+          "id": "db-migration",
+          "name": "Migration",
+          "testCases": [
+            { "id": "TC-DB-011", "priority": "Medium", "type": "Positive", "title": "Verify that a migration script runs cleanly on a fresh database" },
+            { "id": "TC-DB-012", "priority": "Medium", "type": "Edge", "title": "Verify that a migration script is idempotent when run more than once" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "name": "UI Testing",
+      "shortName": "UI",
+      "categories": [
+        {
+          "id": "ui-layout",
+          "name": "Layout & Rendering",
+          "testCases": [
+            { "id": "TC-UI-001", "priority": "Medium", "type": "Positive", "title": "Verify that the page layout adapts correctly across mobile, tablet, and desktop breakpoints" },
+            { "id": "TC-UI-002", "priority": "Low", "type": "Positive", "title": "Verify that all images load with descriptive alt text" }
+          ]
+        },
+        {
+          "id": "ui-forms",
+          "name": "Forms & Validation",
+          "testCases": [
+            { "id": "TC-UI-003", "priority": "High", "type": "Negative", "title": "Verify that submitting a form with an empty required field shows an inline error" },
+            { "id": "TC-UI-004", "priority": "Medium", "type": "Negative", "title": "Verify that a field enforces its maximum character length" },
+            { "id": "TC-UI-005", "priority": "Medium", "type": "Positive", "title": "Verify that a success confirmation is shown after a valid form submission" }
+          ]
+        },
+        {
+          "id": "ui-nav",
+          "name": "Navigation",
+          "testCases": [
+            { "id": "TC-UI-006", "priority": "Medium", "type": "Positive", "title": "Verify that all navigation links route to the correct destination" },
+            { "id": "TC-UI-007", "priority": "Low", "type": "Positive", "title": "Verify that the breadcrumb trail reflects the current page location" }
+          ]
+        },
+        {
+          "id": "ui-interactivity",
+          "name": "Interactivity",
+          "testCases": [
+            { "id": "TC-UI-008", "priority": "Medium", "type": "Positive", "title": "Verify that a modal can be closed via the close button, overlay click, and Esc key" },
+            { "id": "TC-UI-009", "priority": "Low", "type": "Positive", "title": "Verify that a loading indicator is shown during an async action" }
+          ]
+        },
+        {
+          "id": "ui-crossbrowser",
+          "name": "Cross-Browser / Device",
+          "testCases": [
+            { "id": "TC-UI-010", "priority": "Medium", "type": "Positive", "title": "Verify that the page renders consistently across Chrome, Firefox, Safari, and Edge" },
+            { "id": "TC-UI-011", "priority": "Medium", "type": "Positive", "title": "Verify that the page functions correctly on iOS Safari and Android Chrome" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "name": "API Testing",
+      "shortName": "API",
+      "categories": [
+        {
+          "id": "api-status",
+          "name": "Status & Response",
+          "testCases": [
+            { "id": "TC-API-001", "priority": "High", "type": "Positive", "title": "Verify that a valid request returns HTTP 200 with the expected payload" },
+            { "id": "TC-API-002", "priority": "Medium", "type": "Positive", "title": "Verify that the response time stays within the agreed SLA" }
+          ]
+        },
+        {
+          "id": "api-payload",
+          "name": "Payload Validation",
+          "testCases": [
+            { "id": "TC-API-003", "priority": "High", "type": "Positive", "title": "Verify that the response schema matches the documented API contract" },
+            { "id": "TC-API-004", "priority": "Medium", "type": "Positive", "title": "Verify that pagination metadata (total, page, limit) is accurate" }
+          ]
+        },
+        {
+          "id": "api-request",
+          "name": "Request Handling",
+          "testCases": [
+            { "id": "TC-API-005", "priority": "High", "type": "Negative", "title": "Verify that a request missing a required field is rejected with HTTP 400" },
+            { "id": "TC-API-006", "priority": "Medium", "type": "Positive", "title": "Verify that query parameters correctly filter the returned results" }
+          ]
+        },
+        {
+          "id": "api-auth",
+          "name": "Auth & Headers",
+          "testCases": [
+            { "id": "TC-API-007", "priority": "High", "type": "Negative", "title": "Verify that an expired or invalid token is rejected on a protected endpoint" },
+            { "id": "TC-API-008", "priority": "Medium", "type": "Positive", "title": "Verify that CORS headers are configured correctly for allowed origins" }
+          ]
+        },
+        {
+          "id": "api-errors",
+          "name": "Error Handling",
+          "testCases": [
+            { "id": "TC-API-009", "priority": "Medium", "type": "Negative", "title": "Verify that a server error response does not leak a stack trace" },
+            { "id": "TC-API-010", "priority": "Medium", "type": "Negative", "title": "Verify that error responses follow the standard error schema" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security Testing",
+      "shortName": "Security",
+      "categories": [
+        {
+          "id": "sec-authz",
+          "name": "AuthN / AuthZ",
+          "testCases": [
+            { "id": "TC-SEC-001", "priority": "High", "type": "Negative", "title": "Verify that a low-privilege user cannot access an admin-only endpoint" },
+            { "id": "TC-SEC-002", "priority": "High", "type": "Negative", "title": "Verify that repeated failed login attempts are throttled" }
+          ]
+        },
+        {
+          "id": "sec-input",
+          "name": "Input Validation",
+          "testCases": [
+            { "id": "TC-SEC-003", "priority": "High", "type": "Negative", "title": "Verify that a SQL injection payload submitted in an input field is safely rejected" },
+            { "id": "TC-SEC-004", "priority": "High", "type": "Negative", "title": "Verify that an XSS payload submitted in an input field is sanitized in the output" },
+            { "id": "TC-SEC-005", "priority": "Medium", "type": "Negative", "title": "Verify that a file upload rejects disallowed file types and oversized files" }
+          ]
+        },
+        {
+          "id": "sec-data",
+          "name": "Data Protection",
+          "testCases": [
+            { "id": "TC-SEC-006", "priority": "High", "type": "Positive", "title": "Verify that application traffic is served exclusively over HTTPS" },
+            { "id": "TC-SEC-007", "priority": "Medium", "type": "Negative", "title": "Verify that PII is masked in application logs" }
+          ]
+        },
+        {
+          "id": "sec-session",
+          "name": "Session & Tokens",
+          "testCases": [
+            { "id": "TC-SEC-008", "priority": "Medium", "type": "Negative", "title": "Verify that a session token is invalidated after logout" },
+            { "id": "TC-SEC-009", "priority": "Medium", "type": "Negative", "title": "Verify that a state-changing request without a valid CSRF token is rejected" }
+          ]
+        },
+        {
+          "id": "sec-config",
+          "name": "Configuration",
+          "testCases": [
+            { "id": "TC-SEC-010", "priority": "Medium", "type": "Negative", "title": "Verify that debug/verbose error mode is disabled in production" },
+            { "id": "TC-SEC-011", "priority": "Medium", "type": "Positive", "title": "Verify that required security headers (CSP, X-Frame-Options, HSTS) are present" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "microservices",
+      "name": "Microservices Testing",
+      "shortName": "Microservices",
+      "categories": [
+        {
+          "id": "ms-contracts",
+          "name": "Service Contracts",
+          "testCases": [
+            { "id": "TC-MS-001", "priority": "High", "type": "Positive", "title": "Verify that a new API version remains backward compatible with existing consumers" }
+          ]
+        },
+        {
+          "id": "ms-comm",
+          "name": "Inter-Service Communication",
+          "testCases": [
+            { "id": "TC-MS-002", "priority": "High", "type": "Negative", "title": "Verify that the service returns a fallback response when a downstream dependency is unavailable" },
+            { "id": "TC-MS-003", "priority": "Medium", "type": "Positive", "title": "Verify that the circuit breaker trips after the configured failure threshold" }
+          ]
+        },
+        {
+          "id": "ms-consistency",
+          "name": "Data Consistency",
+          "testCases": [
+            { "id": "TC-MS-004", "priority": "High", "type": "Edge", "title": "Verify that duplicate event delivery does not create duplicate side effects" },
+            { "id": "TC-MS-005", "priority": "Medium", "type": "Positive", "title": "Verify that eventual consistency is achieved within the expected time window" }
+          ]
+        },
+        {
+          "id": "ms-observability",
+          "name": "Observability",
+          "testCases": [
+            { "id": "TC-MS-006", "priority": "Medium", "type": "Negative", "title": "Verify that the health check endpoint reflects a degraded dependency" },
+            { "id": "TC-MS-007", "priority": "Low", "type": "Positive", "title": "Verify that logs include a correlation/trace ID for cross-service requests" }
+          ]
+        },
+        {
+          "id": "ms-deployment",
+          "name": "Deployment & Resilience",
+          "testCases": [
+            { "id": "TC-MS-008", "priority": "High", "type": "Positive", "title": "Verify that a rolling deployment causes zero downtime" },
+            { "id": "TC-MS-009", "priority": "Medium", "type": "Positive", "title": "Verify that the service scales horizontally under increased load" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "performance",
+      "name": "Performance Testing",
+      "shortName": "Performance",
+      "categories": [
+        {
+          "id": "perf-load",
+          "name": "Load",
+          "testCases": [
+            { "id": "TC-PERF-001", "priority": "High", "type": "Positive", "title": "Verify that response time stays within SLA at expected concurrent load" },
+            { "id": "TC-PERF-002", "priority": "Medium", "type": "Positive", "title": "Verify that throughput meets the target requests-per-second under load" }
+          ]
+        },
+        {
+          "id": "perf-stress",
+          "name": "Stress & Scalability",
+          "testCases": [
+            { "id": "TC-PERF-003", "priority": "Medium", "type": "Edge", "title": "Verify that the system recovers gracefully after traffic exceeds capacity" },
+            { "id": "TC-PERF-004", "priority": "Medium", "type": "Positive", "title": "Verify that auto-scaling triggers correctly under sustained load" }
+          ]
+        },
+        {
+          "id": "perf-resources",
+          "name": "Resource Usage",
+          "testCases": [
+            { "id": "TC-PERF-005", "priority": "Medium", "type": "Negative", "title": "Verify that no memory leak occurs during sustained load" },
+            { "id": "TC-PERF-006", "priority": "Low", "type": "Positive", "title": "Verify that CPU utilization stays within the acceptable range under load" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a11y",
+      "name": "Accessibility Testing",
+      "shortName": "Accessibility",
+      "categories": [
+        {
+          "id": "a11y-keyboard",
+          "name": "Keyboard & Focus",
+          "testCases": [
+            { "id": "TC-A11Y-001", "priority": "High", "type": "Positive", "title": "Verify that all interactive elements are reachable and operable using only the keyboard" },
+            { "id": "TC-A11Y-002", "priority": "Medium", "type": "Positive", "title": "Verify that a visible focus indicator is present on every focusable control" }
+          ]
+        },
+        {
+          "id": "a11y-screenreader",
+          "name": "Screen Reader",
+          "testCases": [
+            { "id": "TC-A11Y-003", "priority": "High", "type": "Positive", "title": "Verify that a form validation error is announced by a screen reader" },
+            { "id": "TC-A11Y-004", "priority": "Medium", "type": "Positive", "title": "Verify that every form field has an associated label" }
+          ]
+        },
+        {
+          "id": "a11y-visual",
+          "name": "Visual",
+          "testCases": [
+            { "id": "TC-A11Y-005", "priority": "Medium", "type": "Positive", "title": "Verify that body text meets the WCAG AA color contrast minimum" },
+            { "id": "TC-A11Y-006", "priority": "Low", "type": "Positive", "title": "Verify that content remains usable and readable when zoomed to 200%" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile Testing",
+      "shortName": "Mobile",
+      "categories": [
+        {
+          "id": "mobile-functionality",
+          "name": "Functionality",
+          "testCases": [
+            { "id": "TC-MOB-001", "priority": "Medium", "type": "Positive", "title": "Verify that a deep link opens the correct in-app screen" },
+            { "id": "TC-MOB-002", "priority": "Medium", "type": "Positive", "title": "Verify that push notifications are delivered and open the correct screen when tapped" }
+          ]
+        },
+        {
+          "id": "mobile-device",
+          "name": "Device Behavior",
+          "testCases": [
+            { "id": "TC-MOB-003", "priority": "Medium", "type": "Edge", "title": "Verify that in-progress form data survives an orientation change" },
+            { "id": "TC-MOB-004", "priority": "Low", "type": "Edge", "title": "Verify that the app resumes correctly from the background" }
+          ]
+        },
+        {
+          "id": "mobile-network",
+          "name": "Network",
+          "testCases": [
+            { "id": "TC-MOB-005", "priority": "High", "type": "Negative", "title": "Verify that the app handles offline mode gracefully" },
+            { "id": "TC-MOB-006", "priority": "Medium", "type": "Positive", "title": "Verify that pending API calls retry successfully once connectivity is restored" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regression",
+      "name": "Regression Testing",
+      "shortName": "Regression",
+      "categories": [
+        {
+          "id": "regression-core",
+          "name": "Core Flows",
+          "testCases": [
+            { "id": "TC-REG-001", "priority": "High", "type": "Positive", "title": "Verify that the critical checkout flow still completes after an unrelated change" },
+            { "id": "TC-REG-002", "priority": "Medium", "type": "Positive", "title": "Verify that a previously fixed bug remains fixed" }
+          ]
+        },
+        {
+          "id": "regression-integration",
+          "name": "Integration Points",
+          "testCases": [
+            { "id": "TC-REG-003", "priority": "High", "type": "Positive", "title": "Verify that a third-party integration still functions after a dependency upgrade" },
+            { "id": "TC-REG-004", "priority": "Medium", "type": "Positive", "title": "Verify that dependent modules remain unaffected by the change" }
+          ]
+        }
+      ]
+    }
+  ]
+}
