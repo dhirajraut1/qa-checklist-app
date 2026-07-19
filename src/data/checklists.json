@@ -75,7 +75,9 @@
             { "id": "ui-002", "text": "Responsive layout works on mobile / tablet / desktop breakpoints" },
             { "id": "ui-003", "text": "No overlapping, cropped or clipped elements" },
             { "id": "ui-004", "text": "Fonts, spacing and colors match the design spec" },
-            { "id": "ui-005", "text": "Images load with proper alt text" }
+            { "id": "ui-005", "text": "Images load with proper alt text" },
+            { "id": "ui-025", "text": "Text truncates or wraps gracefully instead of breaking the layout" },
+            { "id": "ui-026", "text": "Print stylesheet (if applicable) renders content cleanly" }
           ]
         },
         {
@@ -86,7 +88,10 @@
             { "id": "ui-007", "text": "Inline error messages display correctly" },
             { "id": "ui-008", "text": "Field accepts only valid input formats" },
             { "id": "ui-009", "text": "Max length is enforced on text fields" },
-            { "id": "ui-010", "text": "Success confirmation shown after valid submission" }
+            { "id": "ui-010", "text": "Success confirmation shown after valid submission" },
+            { "id": "ui-027", "text": "Placeholder text disappears on focus/input and doesn't substitute for a label" },
+            { "id": "ui-028", "text": "Autofill correctly populates the expected fields" },
+            { "id": "ui-029", "text": "Copy / paste works correctly in input fields" }
           ]
         },
         {
@@ -96,7 +101,9 @@
             { "id": "ui-011", "text": "All links navigate to the correct destination" },
             { "id": "ui-012", "text": "Browser back button behaves as expected" },
             { "id": "ui-013", "text": "Breadcrumbs reflect the current page location" },
-            { "id": "ui-014", "text": "Active nav item is highlighted correctly" }
+            { "id": "ui-014", "text": "Active nav item is highlighted correctly" },
+            { "id": "ui-030", "text": "Deep-linked / bookmarked URLs load the correct state" },
+            { "id": "ui-031", "text": "404 / not-found page displays for invalid routes" }
           ]
         },
         {
@@ -106,7 +113,9 @@
             { "id": "ui-015", "text": "Buttons are clickable and give visual feedback" },
             { "id": "ui-016", "text": "Loading state shown during async actions" },
             { "id": "ui-017", "text": "Modals open and close correctly" },
-            { "id": "ui-018", "text": "Tooltips display correctly on hover / focus" }
+            { "id": "ui-018", "text": "Tooltips display correctly on hover / focus" },
+            { "id": "ui-032", "text": "Drag-and-drop interactions behave correctly" },
+            { "id": "ui-033", "text": "Keyboard shortcuts don't conflict with browser / OS defaults" }
           ]
         },
         {
@@ -118,7 +127,9 @@
             { "id": "ui-021", "text": "Verified on Safari" },
             { "id": "ui-022", "text": "Verified on Edge" },
             { "id": "ui-023", "text": "Verified on iOS Safari" },
-            { "id": "ui-024", "text": "Verified on Android Chrome" }
+            { "id": "ui-024", "text": "Verified on Android Chrome" },
+            { "id": "ui-034", "text": "Verified with browser zoom levels other than 100%" },
+            { "id": "ui-035", "text": "Verified with common browser extensions / ad-blockers enabled" }
           ]
         }
       ]
@@ -137,7 +148,9 @@
             { "id": "api-002", "text": "Appropriate 4xx returned for invalid input" },
             { "id": "api-003", "text": "401 / 403 returned for unauthorized access" },
             { "id": "api-004", "text": "500 is not returned for a valid request" },
-            { "id": "api-005", "text": "Response time is within the agreed SLA" }
+            { "id": "api-005", "text": "Response time is within the agreed SLA" },
+            { "id": "api-024", "text": "Response time is consistent across repeated identical requests" },
+            { "id": "api-025", "text": "304 Not Modified returned correctly when caching headers match" }
           ]
         },
         {
@@ -148,7 +161,10 @@
             { "id": "api-007", "text": "All required fields are present in the response" },
             { "id": "api-008", "text": "Data types match the spec (string / int / bool / date)" },
             { "id": "api-009", "text": "Pagination metadata is correct (total, page, limit)" },
-            { "id": "api-010", "text": "Null / empty values are handled gracefully" }
+            { "id": "api-010", "text": "Null / empty values are handled gracefully" },
+            { "id": "api-026", "text": "Extra / unexpected fields in the payload are ignored, not rejected" },
+            { "id": "api-027", "text": "Array fields default to an empty array, not null, when no data exists" },
+            { "id": "api-028", "text": "Nested object structures match the documented depth and shape" }
           ]
         },
         {
@@ -159,7 +175,10 @@
             { "id": "api-012", "text": "Invalid / malformed payload returns a clear error" },
             { "id": "api-013", "text": "Missing required fields rejected with 400" },
             { "id": "api-014", "text": "Query params filter results correctly" },
-            { "id": "api-015", "text": "Idempotency respected for repeat PUT / DELETE" }
+            { "id": "api-015", "text": "Idempotency respected for repeat PUT / DELETE" },
+            { "id": "api-029", "text": "Bulk / batch endpoint handles partial success correctly (mixed pass/fail)" },
+            { "id": "api-030", "text": "Request size limit is enforced with a clear error" },
+            { "id": "api-031", "text": "Sorting parameter returns results in the correct order" }
           ]
         },
         {
@@ -170,7 +189,10 @@
             { "id": "api-017", "text": "Expired / invalid token is rejected" },
             { "id": "api-018", "text": "Correct Content-Type header returned" },
             { "id": "api-019", "text": "Rate limiting is enforced" },
-            { "id": "api-020", "text": "CORS headers configured correctly" }
+            { "id": "api-020", "text": "CORS headers configured correctly" },
+            { "id": "api-032", "text": "Refresh token flow issues a new valid access token" },
+            { "id": "api-033", "text": "Scope / permission restrictions limit access to only permitted resources" },
+            { "id": "api-034", "text": "API key rotation doesn't break in-flight requests using the old key" }
           ]
         },
         {
@@ -179,7 +201,9 @@
           "items": [
             { "id": "api-021", "text": "Error response includes a meaningful message" },
             { "id": "api-022", "text": "Error response follows the standard error schema" },
-            { "id": "api-023", "text": "No stack trace leaked in a production error response" }
+            { "id": "api-023", "text": "No stack trace leaked in a production error response" },
+            { "id": "api-035", "text": "Validation errors specify which field failed and why" },
+            { "id": "api-036", "text": "Timeout on a slow downstream call returns a proper 504, not a hang" }
           ]
         }
       ]
@@ -198,7 +222,9 @@
             { "id": "sec-002", "text": "Role-based access control is enforced correctly" },
             { "id": "sec-003", "text": "Session expires after the configured timeout" },
             { "id": "sec-004", "text": "Password reset flow doesn't leak account existence" },
-            { "id": "sec-005", "text": "Brute-force login attempts are throttled" }
+            { "id": "sec-005", "text": "Brute-force login attempts are throttled" },
+            { "id": "sec-024", "text": "Privilege escalation is not possible by manipulating request parameters" },
+            { "id": "sec-025", "text": "Account lockout policy applies consistently across all auth entry points" }
           ]
         },
         {
@@ -209,7 +235,10 @@
             { "id": "sec-007", "text": "XSS payloads are sanitized / escaped in output" },
             { "id": "sec-008", "text": "File upload restricted to allowed types and size" },
             { "id": "sec-009", "text": "Path traversal attempts are blocked" },
-            { "id": "sec-010", "text": "Command injection payloads are rejected" }
+            { "id": "sec-010", "text": "Command injection payloads are rejected" },
+            { "id": "sec-026", "text": "LDAP injection payloads are safely rejected" },
+            { "id": "sec-027", "text": "XML external entity (XXE) attacks are prevented" },
+            { "id": "sec-028", "text": "Server-side request forgery (SSRF) attempts are blocked" }
           ]
         },
         {
@@ -220,7 +249,9 @@
             { "id": "sec-012", "text": "Sensitive data encrypted at rest" },
             { "id": "sec-013", "text": "PII is masked in logs" },
             { "id": "sec-014", "text": "No secrets or keys committed in source" },
-            { "id": "sec-015", "text": "API keys are not exposed in client-side code" }
+            { "id": "sec-015", "text": "API keys are not exposed in client-side code" },
+            { "id": "sec-029", "text": "Data is encrypted using industry-standard, non-deprecated algorithms" },
+            { "id": "sec-030", "text": "Backups are encrypted and access-controlled" }
           ]
         },
         {
@@ -230,7 +261,9 @@
             { "id": "sec-016", "text": "Session token invalidated on logout" },
             { "id": "sec-017", "text": "CSRF protection enforced on state-changing requests" },
             { "id": "sec-018", "text": "JWT signature is validated" },
-            { "id": "sec-019", "text": "Token cannot be reused after expiry" }
+            { "id": "sec-019", "text": "Token cannot be reused after expiry" },
+            { "id": "sec-031", "text": "Session fixation is prevented (session ID regenerated on login)" },
+            { "id": "sec-032", "text": "Concurrent session limits are enforced where required" }
           ]
         },
         {
@@ -240,7 +273,9 @@
             { "id": "sec-020", "text": "Security headers present (CSP, X-Frame-Options, HSTS)" },
             { "id": "sec-021", "text": "Unnecessary ports / services are closed" },
             { "id": "sec-022", "text": "Verbose error / debug mode disabled in production" },
-            { "id": "sec-023", "text": "Dependencies scanned for known vulnerabilities" }
+            { "id": "sec-023", "text": "Dependencies scanned for known vulnerabilities" },
+            { "id": "sec-033", "text": "TLS configuration disallows deprecated protocol versions and weak ciphers" },
+            { "id": "sec-034", "text": "Default / sample admin accounts are removed or disabled" }
           ]
         }
       ]
