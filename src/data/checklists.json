@@ -441,6 +441,342 @@
           ]
         }
       ]
+    },
+    {
+      "id": "usability",
+      "name": "Usability Testing",
+      "shortName": "Usability",
+      "description": "Clarity, workflow efficiency and user experience quality",
+      "categories": [
+        {
+          "id": "ux-clarity",
+          "name": "Clarity & Feedback",
+          "items": [
+            { "id": "ux-001", "text": "Error messages tell the user what went wrong and how to fix it" },
+            { "id": "ux-002", "text": "Primary action on each screen is visually obvious" },
+            { "id": "ux-003", "text": "Empty states explain what to do next" },
+            { "id": "ux-004", "text": "Destructive actions require confirmation" },
+            { "id": "ux-005", "text": "System status is visible at all times (loading, saved, syncing)" }
+          ]
+        },
+        {
+          "id": "ux-flow",
+          "name": "Task Flow",
+          "items": [
+            { "id": "ux-006", "text": "Core task can be completed in the expected number of steps" },
+            { "id": "ux-007", "text": "User can recover from a mistake without losing prior input" },
+            { "id": "ux-008", "text": "Form data persists across accidental navigation / refresh" },
+            { "id": "ux-009", "text": "Multi-step flows show progress (step X of Y)" }
+          ]
+        },
+        {
+          "id": "ux-content",
+          "name": "Content & Consistency",
+          "items": [
+            { "id": "ux-010", "text": "Terminology is consistent across screens" },
+            { "id": "ux-011", "text": "Date, time, and currency formats are consistent" },
+            { "id": "ux-012", "text": "Help text / tooltips are accurate and up to date" }
+          ]
+        },
+        {
+          "id": "ux-firstuse",
+          "name": "First-Use Experience",
+          "items": [
+            { "id": "ux-013", "text": "Onboarding explains core functionality without overwhelming the user" },
+            { "id": "ux-014", "text": "Default settings are sensible for a new user" },
+            { "id": "ux-015", "text": "Sign-up / setup flow can be completed without external documentation" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "localization",
+      "name": "Localization & Internationalization Testing",
+      "shortName": "i18n/L10n",
+      "description": "Translation, locale formatting, and layout under different languages",
+      "categories": [
+        {
+          "id": "i18n-text",
+          "name": "Text & Translation",
+          "items": [
+            { "id": "i18n-001", "text": "All user-facing strings are externalized (no hardcoded text)" },
+            { "id": "i18n-002", "text": "Translations are accurate and contextually correct" },
+            { "id": "i18n-003", "text": "No truncated or overlapping text in longer-language translations (e.g. German)" },
+            { "id": "i18n-004", "text": "Pluralization rules are handled correctly per locale" },
+            { "id": "i18n-005", "text": "Right-to-left (RTL) languages render with correct layout mirroring" }
+          ]
+        },
+        {
+          "id": "i18n-formatting",
+          "name": "Locale Formatting",
+          "items": [
+            { "id": "i18n-006", "text": "Dates display in the locale-appropriate format" },
+            { "id": "i18n-007", "text": "Numbers and currency use correct separators and symbols" },
+            { "id": "i18n-008", "text": "Time zones are converted and displayed correctly" },
+            { "id": "i18n-009", "text": "Units of measurement match locale expectations (metric / imperial)" }
+          ]
+        },
+        {
+          "id": "i18n-encoding",
+          "name": "Encoding & Input",
+          "items": [
+            { "id": "i18n-010", "text": "Unicode / special characters display correctly (no mojibake)" },
+            { "id": "i18n-011", "text": "Non-Latin input (e.g. Devanagari, CJK) is accepted in text fields" },
+            { "id": "i18n-012", "text": "Sorting / collation respects locale-specific rules" }
+          ]
+        },
+        {
+          "id": "i18n-region",
+          "name": "Region-Specific Behavior",
+          "items": [
+            { "id": "i18n-013", "text": "Legal / compliance text matches the target region's requirements" },
+            { "id": "i18n-014", "text": "Region-locked content or features behave correctly" },
+            { "id": "i18n-015", "text": "Address / phone number formats validate per region" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "devops",
+      "name": "DevOps & CI/CD Testing",
+      "shortName": "DevOps",
+      "description": "Build pipelines, deployments, and environment configuration",
+      "categories": [
+        {
+          "id": "cicd-pipeline",
+          "name": "Pipeline",
+          "items": [
+            { "id": "cicd-001", "text": "Build fails fast on lint / compile errors" },
+            { "id": "cicd-002", "text": "Automated test suite runs on every pull request" },
+            { "id": "cicd-003", "text": "Pipeline blocks merge on failing required checks" },
+            { "id": "cicd-004", "text": "Build artifacts are versioned and traceable to a commit" }
+          ]
+        },
+        {
+          "id": "cicd-deploy",
+          "name": "Deployment",
+          "items": [
+            { "id": "cicd-005", "text": "Deployment to staging succeeds without manual intervention" },
+            { "id": "cicd-006", "text": "Rollback to the previous version works within the target time" },
+            { "id": "cicd-007", "text": "Blue-green / canary deployment routes traffic correctly" },
+            { "id": "cicd-008", "text": "Database migrations run automatically as part of deployment" }
+          ]
+        },
+        {
+          "id": "cicd-config",
+          "name": "Environment & Configuration",
+          "items": [
+            { "id": "cicd-009", "text": "Environment variables are correctly scoped per environment" },
+            { "id": "cicd-010", "text": "Secrets are pulled from a secure vault, not committed" },
+            { "id": "cicd-011", "text": "Feature flags toggle behavior without a redeploy" },
+            { "id": "cicd-012", "text": "Staging environment mirrors production configuration" }
+          ]
+        },
+        {
+          "id": "cicd-monitoring",
+          "name": "Post-Deploy Monitoring",
+          "items": [
+            { "id": "cicd-013", "text": "Smoke tests run automatically after deployment" },
+            { "id": "cicd-014", "text": "Alerts fire when error rate spikes post-deploy" },
+            { "id": "cicd-015", "text": "Deployment notifications reach the right channel/team" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etl",
+      "name": "Data Pipeline / ETL Testing",
+      "shortName": "ETL",
+      "description": "Extraction, transformation, loading, and data quality",
+      "categories": [
+        {
+          "id": "etl-extract",
+          "name": "Extraction",
+          "items": [
+            { "id": "etl-001", "text": "Source data is extracted completely (no dropped records)" },
+            { "id": "etl-002", "text": "Incremental extraction correctly captures only new / changed records" },
+            { "id": "etl-003", "text": "Extraction handles source schema changes gracefully" }
+          ]
+        },
+        {
+          "id": "etl-transform",
+          "name": "Transformation",
+          "items": [
+            { "id": "etl-004", "text": "Transformation logic produces mathematically correct aggregates" },
+            { "id": "etl-005", "text": "Null / missing values are handled per business rule" },
+            { "id": "etl-006", "text": "Data type conversions do not lose precision" },
+            { "id": "etl-007", "text": "Deduplication logic removes true duplicates only" }
+          ]
+        },
+        {
+          "id": "etl-load",
+          "name": "Load & Consistency",
+          "items": [
+            { "id": "etl-008", "text": "Row counts reconcile between source and destination" },
+            { "id": "etl-009", "text": "Failed load can be retried without duplicating data" },
+            { "id": "etl-010", "text": "Partial pipeline failure doesn't leave data in an inconsistent state" }
+          ]
+        },
+        {
+          "id": "etl-quality",
+          "name": "Data Quality & Monitoring",
+          "items": [
+            { "id": "etl-011", "text": "Data quality checks flag anomalies (outliers, sudden volume drops)" },
+            { "id": "etl-012", "text": "Pipeline run time is monitored against expected SLA" },
+            { "id": "etl-013", "text": "Lineage / audit trail identifies where a data point originated" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "documentation",
+      "name": "Documentation Testing",
+      "shortName": "Docs",
+      "description": "Accuracy and usability of user-facing and technical documentation",
+      "categories": [
+        {
+          "id": "docs-accuracy",
+          "name": "Accuracy",
+          "items": [
+            { "id": "docs-001", "text": "Documented steps match actual application behavior" },
+            { "id": "docs-002", "text": "Screenshots reflect the current UI" },
+            { "id": "docs-003", "text": "API documentation matches the actual request/response schema" },
+            { "id": "docs-004", "text": "Code samples run without errors" }
+          ]
+        },
+        {
+          "id": "docs-completeness",
+          "name": "Completeness",
+          "items": [
+            { "id": "docs-005", "text": "All public endpoints / features are documented" },
+            { "id": "docs-006", "text": "Edge cases and error responses are documented" },
+            { "id": "docs-007", "text": "Prerequisites and setup steps are complete" }
+          ]
+        },
+        {
+          "id": "docs-usability",
+          "name": "Usability",
+          "items": [
+            { "id": "docs-008", "text": "Table of contents / navigation makes content discoverable" },
+            { "id": "docs-009", "text": "Search returns relevant results for common queries" },
+            { "id": "docs-010", "text": "All internal and external links resolve correctly" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance & Audit Testing",
+      "shortName": "Compliance",
+      "description": "Regulatory, privacy, and audit-trail requirements",
+      "categories": [
+        {
+          "id": "comp-privacy",
+          "name": "Data Privacy",
+          "items": [
+            { "id": "comp-001", "text": "User consent is captured before data collection" },
+            { "id": "comp-002", "text": "User can export / download their own data" },
+            { "id": "comp-003", "text": "User can request account and data deletion" },
+            { "id": "comp-004", "text": "Data retention periods are enforced automatically" }
+          ]
+        },
+        {
+          "id": "comp-audit",
+          "name": "Audit Trail",
+          "items": [
+            { "id": "comp-005", "text": "Sensitive actions are logged with user, timestamp, and action" },
+            { "id": "comp-006", "text": "Audit logs are tamper-evident / immutable" },
+            { "id": "comp-007", "text": "Access to audit logs is itself restricted and logged" }
+          ]
+        },
+        {
+          "id": "comp-regulatory",
+          "name": "Regulatory Alignment",
+          "items": [
+            { "id": "comp-008", "text": "Required disclosures / terms are shown before a regulated action" },
+            { "id": "comp-009", "text": "Financial calculations match the regulatory-specified formula" },
+            { "id": "comp-010", "text": "Reports required by regulators are generated in the correct format" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resilience",
+      "name": "Chaos & Resilience Testing",
+      "shortName": "Resilience",
+      "description": "System behavior under induced failure and adverse conditions",
+      "categories": [
+        {
+          "id": "res-infra",
+          "name": "Infrastructure Failure",
+          "items": [
+            { "id": "res-001", "text": "System tolerates the loss of a single node / instance" },
+            { "id": "res-002", "text": "System recovers automatically after a zone / region outage simulation" },
+            { "id": "res-003", "text": "Failover to a secondary/replica occurs within the target time" }
+          ]
+        },
+        {
+          "id": "res-dependency",
+          "name": "Dependency Failure",
+          "items": [
+            { "id": "res-004", "text": "Application remains partially functional when a non-critical dependency fails" },
+            { "id": "res-005", "text": "Injected network latency doesn't cause cascading timeouts" },
+            { "id": "res-006", "text": "Clock skew between services doesn't break time-sensitive logic" }
+          ]
+        },
+        {
+          "id": "res-recovery",
+          "name": "Recovery",
+          "items": [
+            { "id": "res-007", "text": "System self-heals without manual intervention where designed to" },
+            { "id": "res-008", "text": "No data corruption occurs after a forced kill / restart" },
+            { "id": "res-009", "text": "Backups can be restored successfully within the target RTO" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "integration",
+      "name": "Third-Party Integration Testing",
+      "shortName": "Integration",
+      "description": "External services, webhooks, and vendor API dependencies",
+      "categories": [
+        {
+          "id": "int-connectivity",
+          "name": "Connectivity & Auth",
+          "items": [
+            { "id": "int-001", "text": "Integration authenticates successfully with valid credentials" },
+            { "id": "int-002", "text": "Expired / revoked credentials are detected and surfaced to the user" },
+            { "id": "int-003", "text": "Sandbox and production endpoints are not cross-wired" }
+          ]
+        },
+        {
+          "id": "int-webhooks",
+          "name": "Webhooks & Events",
+          "items": [
+            { "id": "int-004", "text": "Incoming webhook payloads are verified (signature / secret check)" },
+            { "id": "int-005", "text": "Duplicate webhook deliveries are handled idempotently" },
+            { "id": "int-006", "text": "Missed / failed webhook deliveries are retried or reconciled" }
+          ]
+        },
+        {
+          "id": "int-data",
+          "name": "Data Mapping",
+          "items": [
+            { "id": "int-007", "text": "Fields map correctly between internal model and vendor schema" },
+            { "id": "int-008", "text": "Vendor API version changes are detected before they break integration" },
+            { "id": "int-009", "text": "Sync conflicts (local vs remote edits) are resolved per defined rule" }
+          ]
+        },
+        {
+          "id": "int-failure",
+          "name": "Failure Handling",
+          "items": [
+            { "id": "int-010", "text": "Vendor outage doesn't block unrelated core functionality" },
+            { "id": "int-011", "text": "Clear user-facing message shown when a third-party service is unavailable" }
+          ]
+        }
+      ]
     }
   ]
 }
